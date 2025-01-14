@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>ICFC</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans text-gray-900 antialiased relative">
+        <!-- Background Image -->
+        <div
+            class="absolute inset-0 bg-cover bg-center opacity-75 z-0"
+            style="background-image: url('{{ asset('images/churchlogo.jpg') }}');">
+        </div>
+
+        <!-- Yellow Overlay with Opacity and Blur -->
+        <div class="absolute inset-0 bg-yellow-500 opacity-20 filter blur-sm z-0"></div>
+
+        <!-- Main Content -->
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 bg-opacity-50 relative z-10">
+            <div>
+                <a href="/" wire:navigate>
+                    <img src="{{ asset('images/churchicon-removebg-preview.png') }}" alt="" class="w-20 h-20 fill-current text-gray-500">
+               <span class="font-black text-2xl text-yellow-800 ml-4 underline">ICFC</span>
+                </a>
+            </div>
+
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                {{ $slot }}
+            </div>
+        </div>
+    </body>
+</html>
