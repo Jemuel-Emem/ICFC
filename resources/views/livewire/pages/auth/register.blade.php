@@ -39,6 +39,7 @@ new #[Layout('layouts.guest')] class extends Component
 
 <div>
     <form wire:submit="register">
+        <span class="text-red-500 ">You must register first to apply</span>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
