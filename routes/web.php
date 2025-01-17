@@ -32,6 +32,10 @@ Route::middleware([
             return view('admin.index');
         })->name('Admindashboard');
 
+        Route::get('/admin.weddings', function(){
+            return view('admin.weddings');
+        })->name('admin.weddings');
+
 
 
 
@@ -41,6 +45,14 @@ Route::middleware([
         Route::get('/dashboard', function(){
                return view('user.index');
            })->name('user-dashboard');
+
+           Route::get('/user.services', function(){
+            return view('user.services');
+        })->name('user-services');
+
+        Route::get('/user.wedding', function(){
+            return view('user.wedding');
+        })->name('user-wedding');
 
 
 

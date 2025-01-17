@@ -2,7 +2,7 @@
     <div>
 
         <div class="  h-cover">
-            <livewire:admin.index />
+            <livewire:admin.weddings />
         </div>
 
     </div>

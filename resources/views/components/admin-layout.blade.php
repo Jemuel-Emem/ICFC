@@ -32,7 +32,7 @@
         }
 
         aside {
-            background-color: #1e3a8a; /* Navy blue for sidebar */
+            background-color: #d97706; /* Amber color for sidebar */
         }
 
         aside ul li a {
@@ -41,12 +41,12 @@
         }
 
         aside ul li a:hover {
-            color: #1e3a8a;
-            background-color: #e2e8f0; /* Soft gray hover */
+            color: #d97706;
+            background-color: #fde68a; /* Lighter amber hover */
         }
 
         .header {
-            background-color: #1e40af; /* Deeper blue for header */
+            background-color: #d97706; /* Amber color for header */
             color: white;
         }
 
@@ -78,7 +78,7 @@
                 <a href="{{ route('Admindashboard') }}">
                     <div class="flex flex-col items-center h-full px-3 overflow-y-auto  rounded-lg">
                         <div>
-                            <img src="{{ asset('images/Screenshot 2025-01-09 185647.png') }}" alt="Logo" class="w-16 h-16 rounded-lg">
+                            <img src="{{ asset('images/472517577_1343318386700709_2218368472948680606_n-removebg-preview.png') }}" alt="Logo" class="w-32 h-16 rounded-lg">
                         </div>
                         <div class="text-center mt-2">
                             <label for="" class="font-black text-white text-xl" id="logo">GPFCI</label>
@@ -95,18 +95,18 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.membership') }}"
+                    <a href="{{ route('admin.weddings') }}"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-group-2-fill"></i>
-                        <span class="ml-3">Membership</span>
+                        <span class="ml-3">Weddings</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.members') }}"
+                    <a href=""
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-group-2-fill"></i>
-                        <span class="ml-3">Members</span>
+                        <span class="ml-3">Baptisms</span>
                     </a>
                 </li>
 
@@ -115,18 +115,12 @@
                     <a href=""
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-building-3-fill"></i>
-                        <span class="ml-3">Plan</span>
+                        <span class="ml-3">Funerals</span>
                     </a>
                 </li>
 
 
-                <li>
-                    <a href=""
-                        class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <i class="ri-bank-card-fill"></i>
-                        <span class="ml-3">Payments</span>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </aside>
@@ -134,7 +128,7 @@
 
     <div class="header flex justify-between items-center p-4 sm:ml-64">
         <div class="ml-10">
-            <img src="{{ asset('images/Screenshot 2025-01-09 185647.png') }}" alt="SKSU Logo" class="h-16 w-16">
+            <img src="{{ asset('images/472517577_1343318386700709_2218368472948680606_n-removebg-preview.png') }}" alt="SKSU Logo" class="h-16 w-32">
         </div>
         <div class="text-right">
             <span class="font-bold">{{ Auth::user()->name }}</span>

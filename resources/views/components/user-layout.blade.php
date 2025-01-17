@@ -37,6 +37,7 @@
 
 <body class="font-sans antialiased min-h-screen flex flex-col bg-no-repeat">
     @livewireScripts
+    <x-notifications />
     {{-- <x-dialog />
     <x-notifications position="top-left" /> --}}
 
@@ -60,7 +61,7 @@
                 </div>
                 <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
                     <a href="" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600 lg:ml-auto">Dashboard</a>
-                    <a href="" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Services</a>
+                    <a href="{{ route('user-services') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Services</a>
                     <a href="" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Appointment</a>
 
                     <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
