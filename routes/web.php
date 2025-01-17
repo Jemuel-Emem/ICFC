@@ -36,7 +36,9 @@ Route::middleware([
             return view('admin.weddings');
         })->name('admin.weddings');
 
-
+        Route::get('/admin.baptism', function(){
+            return view('admin.baptism');
+        })->name('admin.baptism');
 
 
      });
@@ -54,6 +56,13 @@ Route::middleware([
             return view('user.wedding');
         })->name('user-wedding');
 
+        Route::get('/user.baptism', function(){
+            return view('user.baptism');
+        })->name('user-baptism');
+
+        Route::get('/user.status', function(){
+            return view('user.appointment_status');
+        })->name('user-status');
 
 
 

@@ -3,7 +3,7 @@
     <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
       <h2 class="text-2xl font-bold text-pink-500 mb-2">Wedding</h2>
       <p class="text-gray-600 mb-4">Celebrate the union of love and commitment in a beautiful ceremony.</p>
-     <a href="{{ route('user-wedding') }}"> <button class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600">
+     <a href="{{ route('user-wedding') }}"> <button class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800">
         Appoint Now
       </button></a>
     </div>
@@ -12,9 +12,9 @@
     <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
       <h2 class="text-2xl font-bold text-blue-500 mb-2">Baptism</h2>
       <p class="text-gray-600 mb-4">Welcome a new member into the faith with a sacred and joyful celebration.</p>
-      <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+      <a href="{{ route('user-baptism') }}"> <button class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800">
         Appoint Now
-      </button>
+      </button></a>
     </div>
 
 

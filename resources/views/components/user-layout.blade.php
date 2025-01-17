@@ -62,7 +62,7 @@
                 <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
                     <a href="" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600 lg:ml-auto">Dashboard</a>
                     <a href="{{ route('user-services') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Services</a>
-                    <a href="" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Appointment</a>
+                    <a href="{{ route('user-status') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Appointment</a>
 
                     <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
                         <div class="relative flex-shrink-0 ml-5" @click.away="open = false" x-data="{ open: false }">
