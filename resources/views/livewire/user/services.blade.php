@@ -21,8 +21,10 @@
     <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
       <h2 class="text-2xl font-bold text-gray-700 mb-2">Funeral</h2>
       <p class="text-gray-600 mb-4">Honor and remember a loved one with a meaningful ceremony.</p>
-      <button class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800">
-        Appoint Now
-      </button>
+     <a href="{{ route('user-funeral') }}">
+        <button class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800">
+            Appoint Now
+          </button>
+     </a>
     </div>
   </div>

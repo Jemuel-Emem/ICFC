@@ -4,6 +4,7 @@ namespace App\Livewire\User;
 
 use App\Models\Baptism;
 use App\Models\Wedding;
+use App\Models\Funeral;
 use Livewire\Component;
 
 class AppointmentStatus extends Component
@@ -12,23 +13,28 @@ class AppointmentStatus extends Component
 
     public function render()
     {
-        // Assuming the user is logged in and you can fetch their appointments
-        $userId = auth()->id();  // or pass it directly when calling the component
 
-        // Fetch baptism appointments for the user
+        $userId = auth()->id();
+
+
         $baptisms = Baptism::where('user_id', $userId)->get()->map(function ($baptism) {
             $baptism->type = 'Baptism';
             return $baptism;
         });
 
-        // Fetch wedding appointments for the user
         $weddings = Wedding::where('user_id', $userId)->get()->map(function ($wedding) {
             $wedding->type = 'Wedding';
             return $wedding;
         });
 
-        // Merge both baptism and wedding records into one collection
-        $appointments = $baptisms->merge($weddings);
+        $funerals = Funeral::where('user_id', $userId)->get()->map(function ($funeral) {
+            $funeral->type = 'Funeral';
+            return $funeral;
+        });
+
+
+        $appointments = $baptisms->merge($weddings)->merge($funerals);
+
 
         return view('livewire.user.appointment-status', compact('appointments'));
     }

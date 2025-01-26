@@ -112,7 +112,7 @@
 
 
                 <li>
-                    <a href=""
+                    <a href="{{ route('admin.funeral') }}"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-building-3-fill"></i>
                         <span class="ml-3">Funerals</span>

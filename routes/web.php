@@ -40,6 +40,10 @@ Route::middleware([
             return view('admin.baptism');
         })->name('admin.baptism');
 
+        Route::get('/admin.funeral', function(){
+            return view('admin.funeral');
+        })->name('admin.funeral');
+
 
      });
 
@@ -59,6 +63,11 @@ Route::middleware([
         Route::get('/user.baptism', function(){
             return view('user.baptism');
         })->name('user-baptism');
+
+        Route::get('/user.funeral', function(){
+            return view('user.funeral');
+        })->name('user-funeral');
+
 
         Route::get('/user.status', function(){
             return view('user.appointment_status');

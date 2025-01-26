@@ -14,13 +14,18 @@
             @forelse($appointments as $appointment)
                 <tr class="border-t">
                     <td class="p-4">{{ $appointment->type }}</td>
+
                     @if($appointment->type == 'Baptism')
                         <td class="p-4">{{ $appointment->child_name }}</td>
                         <td class="p-4">{{ $appointment->preferred_baptism_date }}</td>
-                    @else
+                    @elseif($appointment->type == 'Wedding')
                         <td class="p-4">{{ $appointment->bride_name }} &amp; {{ $appointment->groom_name }}</td>
                         <td class="p-4">{{ $appointment->wedding_date }}</td>
+                    @else
+                        <td class="p-4">{{ $appointment->name }}</td>
+                        <td class="p-4">{{ $appointment->funeral_date }}</td>
                     @endif
+
                     <td class="p-4">{{ ucfirst($appointment->status) }}</td>
                 </tr>
             @empty
