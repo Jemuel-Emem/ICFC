@@ -15,7 +15,7 @@
         <div class="bg-white shadow-lg rounded-lg p-6 text-center">
             <h3 class="text-xl font-semibold text-blue-700">Wedding Certificate</h3>
             <p class="text-gray-600 mt-2">Download your wedding certificate.</p>
-            <a href="path-to-wedding-certificate.pdf" target="_blank" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+            <a href="{{ asset('certificate/Certificate-of-Marriage- (1).pdf') }}" target="_blank" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
                 Download
             </a>
         </div>
@@ -24,7 +24,7 @@
         <div class="bg-white shadow-lg rounded-lg p-6 text-center">
             <h3 class="text-xl font-semibold text-red-700">Death Certificate</h3>
             <p class="text-gray-600 mt-2">Download the death certificate.</p>
-            <a href="path-to-death-certificate.pdf" target="_blank" class="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+            <a href="{{ asset('certificate/Certificate-of-Death.pdf') }}" target="_blank" class="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
                 Download
             </a>
         </div>
