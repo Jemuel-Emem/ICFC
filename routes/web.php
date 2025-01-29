@@ -44,6 +44,9 @@ Route::middleware([
             return view('admin.funeral');
         })->name('admin.funeral');
 
+        Route::get('/admin.certificate', function(){
+            return view('admin.certificate');
+        })->name('admin.certificate');
 
      });
 

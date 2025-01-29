@@ -69,8 +69,46 @@
 
         <div id="about" class="section hidden">
             <div class="container mx-auto py-10">
-                <h2 class="text-3xl font-bold mb-6">About Us</h2>
-                <p>Information about ICFC, its mission, vision, and community initiatives can be shared here.</p>
+                <div class="max-w-6xl mx-auto p-6">
+
+                    <div class="bg-white shadow-lg rounded-lg p-8">
+                        <h1 class="text-3xl font-bold text-center text-gray-700">About Us</h1>
+                        <p class="mt-4 text-gray-700 text-justify leading-relaxed">
+                            Welcome to <strong>Parroquia ni Sta. Teresa de Jesus (Aglipay Memorial Church)</strong>! Nestled in the heart of Ramos, Tarlac, our parish is a proud part of the <strong>Iglesia Filipina Independiente (IFI)</strong>, a historic church born out of the Filipino people's desire for independence in faith and governance.
+                        </p>
+                        <p class="mt-2 text-gray-700 text-justify leading-relaxed">
+                            Founded in 1902, the IFI continues to serve as a beacon of faith, justice, and community service for Filipinos. Our parish is dedicated to <strong>Sta. Teresa de Avila</strong>, a revered saint known for her deep spirituality, reformist work, and unwavering faith. Inspired by her teachings, we aim to foster a community rooted in prayer, compassion, and a commitment to spiritual and social transformation.
+                        </p>
+                        <p class="mt-2 text-gray-700 text-justify leading-relaxed">
+                            Beside the Ramos Town Hall in <strong>Tarlac Town Proper</strong>, our church serves the communities of Barangay Poblacion North, Poblacion South, and Poblacion Center, extending its reach along Ramos-Anao, Tarlac Road, and beyond.
+                        </p>
+                    </div>
+
+                    <!-- Mission, Vision, Commitment -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <!-- Mission Card -->
+                        <div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-green-500">
+                            <h2 class="text-xl font-bold text-green-700">Mission</h2>
+                            <p class="mt-2 text-gray-700 leading-relaxed">
+                                To empower the marginalized and oppressed through education, organization, and mobilization, fostering justice, equality, and social transformation rooted in faith.
+                            </p>
+                        </div>
+
+                        <div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-blue-500">
+                            <h2 class="text-xl font-bold text-blue-700">Vision</h2>
+                            <p class="mt-2 text-gray-700 leading-relaxed">
+                                To establish a Philippine society characterized by justice, peace, and freedom from foreign domination, where Filipinos actively witness God's love in their lives and communities.
+                            </p>
+                        </div>
+
+                        <!-- Commitment Card -->
+                        <div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-red-500">
+                            <h2 class="text-xl font-bold text-red-700">Commitment</h2>
+                            <p class="mt-2 text-gray-700 leading-relaxed">
+                                At the Aglipay Memorial Church, we celebrate the richness of Filipino spirituality, inspired by the teachings of <strong>Gregorio Aglipay</strong>, the first Obispo Máximo of the IFI. We remain steadfast in our mission to be a sanctuary of hope, a source of inspiration, and a force for positive change in the lives of our parishioners and the community of Ramos, Tarlac.
+                            </p>
+                        </div>
+                    </div>
             </div>
         </div>
     </main>
