@@ -48,6 +48,14 @@ Route::middleware([
             return view('admin.certificate');
         })->name('admin.certificate');
 
+        Route::get('/admin.donations', function(){
+            return view('admin.donations');
+        })->name('admin.donations');
+
+        Route::get('/admin.donation-list', function(){
+            return view('admin.donations-list');
+        })->name('admin.donation-list');
+
      });
 
      Route::prefix('user')->middleware('user')->group(function(){

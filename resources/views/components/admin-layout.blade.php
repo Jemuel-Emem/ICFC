@@ -118,7 +118,13 @@
                         <span class="ml-3">Funerals</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ route('admin.donations') }}"
+                        class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="ri-hand-heart-fill"></i>
+                        <span class="ml-3">Donations</span>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('admin.certificate') }}"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">

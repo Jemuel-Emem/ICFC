@@ -6,7 +6,7 @@
         <div class="bg-white shadow-lg rounded-lg p-6 text-center">
             <h3 class="text-xl font-semibold text-green-700">Baptismal Certificate</h3>
             <p class="text-gray-600 mt-2">Download your baptismal certificate.</p>
-            <a href="path-to-baptismal-certificate.pdf" target="_blank" class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+            <a href="{{ asset('certificate/Presentation-WPS Office.pptx') }}" target="_blank" class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
                 Download
             </a>
         </div>
