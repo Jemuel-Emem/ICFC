@@ -48,16 +48,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white shadow-md rounded-lg p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2">Wedding</h3>
+                        <img src="{{ asset('images/wed.png') }}" alt="">
                         <p class="text-gray-600">Celebrate your union in a sacred and memorable ceremony.</p>
                        <a href="{{ route('register') }}"> <button class="bg-gray-900 text-white p-1 rounded-sm mt-2 w-64 ">Appoint Now</button></a>
                     </div>
                     <div class="bg-white shadow-md rounded-lg p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2">Baptism</h3>
+                        <img src="{{ asset('images/baptism.png') }}" alt="">
                         <p class="text-gray-600">Begin your spiritual journey with the blessing of baptism.</p>
                        <a href="{{ route('register') }}"> <button class="bg-gray-900 text-white p-1 rounded-sm mt-2 w-64 ">Appoint Now</button></a>
                     </div>
                     <div class="bg-white shadow-md rounded-lg p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2">Funeral</h3>
+                        <img src="{{ asset('images/fune.png') }}" alt="">
                         <p class="text-gray-600">Honoring and celebrating the life of your loved ones.</p>
                        <a href="{{ route('register') }}"> <button class="bg-gray-900 text-white p-1 rounded-sm mt-2 w-64 ">Appoint Now</button></a>
                     </div>
@@ -86,7 +89,7 @@
 
                     <!-- Mission, Vision, Commitment -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                        <!-- Mission Card -->
+
                         <div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-green-500">
                             <h2 class="text-xl font-bold text-green-700">Mission</h2>
                             <p class="mt-2 text-gray-700 leading-relaxed">
@@ -101,7 +104,7 @@
                             </p>
                         </div>
 
-                        <!-- Commitment Card -->
+
                         <div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-red-500">
                             <h2 class="text-xl font-bold text-red-700">Commitment</h2>
                             <p class="mt-2 text-gray-700 leading-relaxed">

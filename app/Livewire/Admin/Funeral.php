@@ -9,7 +9,7 @@ use Livewire\Component;
 class Funeral extends Component
 {
     use Actions;
-
+    public $search;
     public $funerals;
     public $showModal = false;
     public $selectedFuneral = null;
@@ -17,6 +17,11 @@ class Funeral extends Component
     public function mount()
     {
         $this->funerals = Fune::all();
+    }
+    public function sa()
+    {
+
+        $this->funerals = Fune::where('name', 'like', '%' . $this->search . '%')->get();
     }
 
     public function viewDetails($id)
@@ -58,8 +63,11 @@ class Funeral extends Component
         $this->showModal = false;
     }
 
+
     public function render()
     {
-        return view('livewire.admin.funeral');
+        return view('livewire.admin.funeral', [
+            'funerals' => $this->funerals,
+        ]);
     }
 }

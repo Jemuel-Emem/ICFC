@@ -1,5 +1,6 @@
 <?php
 namespace App\Livewire\Admin;
+
 use WireUi\Traits\Actions;
 use App\Models\Baptism as bapp;
 use Livewire\Component;
@@ -10,11 +11,14 @@ class Baptism extends Component
     public $baptisms;
     public $showModal = false;
     public $selectedBaptism = null;
+    public $search = '';
 
     public function mount()
     {
+
         $this->baptisms = bapp::all();
     }
+
 
     public function viewDetails($id)
     {
@@ -35,6 +39,7 @@ class Baptism extends Component
         $this->mount();
     }
 
+
     public function cancel($id)
     {
         $baptism = bapp::find($id);
@@ -48,13 +53,23 @@ class Baptism extends Component
         $this->mount();
     }
 
+
     public function closeModal()
     {
         $this->showModal = false;
     }
 
+
+    public function sa()
+    {
+
+        $this->baptisms = bapp::where('child_name', 'like', '%' . $this->search . '%')->get();
+    }
+
     public function render()
     {
-        return view('livewire.admin.baptism');
+        return view('livewire.admin.baptism', [
+            'baptisms' => $this->baptisms,
+        ]);
     }
 }

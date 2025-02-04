@@ -1,5 +1,15 @@
 <div class="p-6 space-y-4">
     <h2 class="text-2xl font-bold">Funeral List</h2>
+    <div class="mb-4 flex">
+        <input
+            type="text"
+            wire:model="search"
+            class="p-2 border border-gray-300 rounded-md w-full"
+            placeholder="Search by Name"
+        />
+
+        <button wire:click="sa" class="bg-green-500 text-white ml-2 p-2 w-64 rounded">Search</button>
+    </div>
 
     @if (session()->has('message'))
         <div class="p-4 mb-4 text-sm text-green-800 bg-green-200 rounded-lg">

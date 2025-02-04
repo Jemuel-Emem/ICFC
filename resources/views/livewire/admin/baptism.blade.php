@@ -1,6 +1,15 @@
 <div class="p-6 space-y-4">
     <h2 class="text-2xl font-bold">Baptism List</h2>
+    <div class="mb-4 flex">
+        <input
+            type="text"
+            wire:model="search"
+            class="p-2 border border-gray-300 rounded-md w-full"
+            placeholder="Search by Child's Name"
+        />
 
+        <button wire:click="sa" class="bg-green-500 text-white ml-2 p-2 w-64 rounded">Search</button>
+    </div>
     @if (session()->has('message'))
         <div class="p-4 mb-4 text-sm text-green-800 bg-green-200 rounded-lg">
             {{ session('message') }}
@@ -64,7 +73,7 @@
 
                 @if ($selectedBaptism)
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Child Details -->
+
                         <div>
                             <h4 class="text-lg font-semibold mb-2">Child's Details</h4>
                             <p><strong>Name:</strong> {{ $selectedBaptism->child_name }}</p>
@@ -75,7 +84,7 @@
                             <p><strong>Family Connection:</strong> {{ $selectedBaptism->family_connection }}</p>
                         </div>
 
-                        <!-- Parent Details -->
+
                         <div>
                             <h4 class="text-lg font-semibold mb-2">Parent's Details</h4>
                             <p><strong>Mother's Name:</strong> {{ $selectedBaptism->mother_name }}</p>

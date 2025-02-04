@@ -12,23 +12,32 @@ class Weddings extends Component
     public $showModal = false;
     use Actions;
     public $weddings;
+    public $search = '';
 
     public function mount()
     {
         $this->weddings = Wedding::all();
     }
 
+    public function updatedSearch()
+    {
+        $this->weddings = Wedding::where('bride_name', 'like', '%' . $this->search . '%')
+            ->orWhere('groom_name', 'like', '%' . $this->search . '%')
+            ->get();
+    }
 
     public function viewDetails($id)
     {
         $this->selectedWedding = Wedding::findOrFail($id);
         $this->showModal = true;
     }
+
     public function closeModal()
     {
         $this->showModal = false;
         $this->selectedWedding = null;
     }
+
     public function approve($id)
     {
         $wedding = Wedding::findOrFail($id);
@@ -42,6 +51,9 @@ class Weddings extends Component
         $this->weddings = Wedding::all();
     }
 
+    public function sa(){
+$this->updatedSearch();
+    }
     public function cancel($id)
     {
         $wedding = Wedding::findOrFail($id);
