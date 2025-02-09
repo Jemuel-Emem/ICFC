@@ -36,8 +36,8 @@
                         At ICFC, we believe in fostering a community rooted in faith, love, and service. Join us as we journey together in worship and spiritual growth.
                     </p>
                 </div>
-                <div class="w-1/2 flex justify-center mt-2">
-                    <img src="{{ asset('images/churchlogo.jpg') }}" alt="Church Logo" class="max-w-full h-auto">
+                <div class="w-1/2 flex justify-center ">
+                    <img src="{{ asset('images/ch2.jpg') }}" alt="Church Logo" class="max-w-full h-auto">
                 </div>
             </div>
         </div>

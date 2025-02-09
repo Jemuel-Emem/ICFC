@@ -18,7 +18,7 @@
         <!-- Background Image -->
         <div
             class="absolute inset-0 bg-cover bg-center opacity-75 z-0"
-            style="background-image: url('{{ asset('images/churchlogo.jpg') }}');">
+            style="background-image: url('{{ asset('images/475377499_1362277068271264_8045943025790842979_n.jpg') }}');">
         </div>
 
         <!-- Yellow Overlay with Opacity and Blur -->
