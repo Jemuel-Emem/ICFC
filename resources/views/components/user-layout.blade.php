@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
     <title>ICFC</title>
 
@@ -46,7 +47,7 @@
             <div x-data="{ open: false }" class="relative flex flex-col w-full p-5 mx-auto bg-amber-700 md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                 <div class="flex flex-row items-center justify-between lg:justify-start">
                     <a class="tracking-tight text-black uppercase focus:outline-none focus:ring lg:text-2xl flex items-center gap-4" href="/">
-                        <img src="{{ asset('images/churchicon-removebg-preview.png') }}" alt="Violation Photo" class="w-16 h-16 border rounded-full">
+                        <img src="{{ asset('images/alogo.png') }}" alt="Violation Photo" class="w-16 h-16 ">
                         <div id="logo" class="flex flex-col">
                             <h1 class="text-white text-lg font-bold">ICFC</h1>
                             <p class="text-yellow-500 text-sm">Independent Church of Filipino Christians</p>
@@ -69,9 +70,14 @@
                             <div>
                                 <span class="text-white font-bold"> {{ Auth::user()->name }}</span>
                                 <x-dropdown>
-                                    <x-dropdown.item label="Logout" class="" href="{{ route('logout') }}" />
+                                    <x-dropdown.item class="" href="{{ route('logout') }}">
+                                        <i class="ri-logout-box-r-fill text-red-500 mr-2"></i>
+                                        Logout
+                                    </x-dropdown.item>
                                 </x-dropdown>
                             </div>
+
+
                         </div>
                     </div>
                 </nav>

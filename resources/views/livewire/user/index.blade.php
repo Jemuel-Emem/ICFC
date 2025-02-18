@@ -7,7 +7,7 @@
             </p>
         </div>
         <div class="w-1/2 flex justify-center">
-            <img src="{{ asset('images/churchlogo.jpg') }}" alt="Church Logo" class="max-w-full h-auto rounded-lg">
+            <img src="{{ asset('images/475377499_1362277068271264_8045943025790842979_n.jpg') }}" alt="Church Logo" class="max-w-full h-auto rounded-lg">
         </div>
     </div>
 </div>

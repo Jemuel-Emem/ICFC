@@ -28,7 +28,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 bg-opacity-50 relative z-10">
             <div>
                 <a href="/" wire:navigate>
-                    <img src="{{ asset('images/churchicon-removebg-preview.png') }}" alt="" class="w-20 h-20 fill-current text-gray-500">
+                    <img src="{{ asset('images/alogo.png') }}" alt="" class="w-20 h-16 fill-current text-gray-500">
                <span class="font-black text-2xl text-yellow-800 ml-4 underline">ICFC</span>
                 </a>
             </div>
