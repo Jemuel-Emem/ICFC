@@ -14,6 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
 
+    <!-- TUI Calendar CSS -->
+<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css">
+
     <style>
         [x-cloak] {
             display: none;
@@ -78,7 +81,7 @@
                 <a href="{{ route('Admindashboard') }}">
                     <div class="flex flex-col items-center h-full px-3 overflow-y-auto  rounded-lg">
                         <div>
-                            <img src="{{ asset('images/472517577_1343318386700709_2218368472948680606_n-removebg-preview.png') }}" alt="Logo" class="w-32 h-16 rounded-lg">
+                            <img src="{{ asset('images/alogo.png') }}" alt="Logo" class="w-32 h-16 rounded-lg">
                         </div>
                         <div class="text-center mt-2">
                             <label for="" class="font-black text-white text-xl" id="logo">GPFCI</label>
@@ -90,7 +93,7 @@
                     <a href="{{ route('Admindashboard') }}"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-dashboard-3-fill"></i>
-                        <span class="ml-3">Dashboard</span>
+                        <span class="ml-3">Home</span>
                     </a>
                 </li>
 
@@ -142,7 +145,7 @@
 
     <div class="header flex justify-between items-center p-4 sm:ml-64">
         <div class="ml-10">
-            <img src="{{ asset('images/472517577_1343318386700709_2218368472948680606_n-removebg-preview.png') }}" alt="SKSU Logo" class="h-16 w-32">
+            <img src="{{ asset('images/alogo.png') }}" alt="SKSU Logo" class="h-16 w-32">
         </div>
         <div class="text-right">
             <span class="font-bold">{{ Auth::user()->name }}</span>

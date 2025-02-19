@@ -48,9 +48,9 @@
                 <div class="flex flex-row items-center justify-between lg:justify-start">
                     <a class="tracking-tight text-black uppercase focus:outline-none focus:ring lg:text-2xl flex items-center gap-4" href="/">
                         <img src="{{ asset('images/alogo.png') }}" alt="Violation Photo" class="w-16 h-16 ">
-                        <div id="logo" class="flex flex-col">
-                            <h1 class="text-white text-lg font-bold">ICFC</h1>
-                            <p class="text-yellow-500 text-sm">Independent Church of Filipino Christians</p>
+                        <div class="flex flex-col">
+                            <h1  id="logo" class="text-white text-lg font-bold">ICFC</h1>
+                            <p class="text-white text-sm">Independent Church of Filipino Christians</p>
                         </div>
                     </a>
                     <button @click="open = !open" class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-black focus:outline-none focus:text-black md:hidden">
@@ -61,20 +61,23 @@
                     </button>
                 </div>
                 <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
-                    <a href="{{ route('user-dashboard') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600 lg:ml-auto">Dashboard</a>
+                    <a href="{{ route('user-dashboard') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600 lg:ml-auto">Home</a>
                     <a href="{{ route('user-services') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Services</a>
                     <a href="{{ route('user-status') }}" class="px-2 py-2 text-sm text-white lg:px-6 md:px-3 hover:text-cyan-600">Appointment</a>
 
                     <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
                         <div class="relative flex-shrink-0 ml-5" @click.away="open = false" x-data="{ open: false }">
                             <div>
-                                <span class="text-white font-bold"> {{ Auth::user()->name }}</span>
+                                <a href="{{ route('logout') }}" class="bg-white text-red-500 hover:bg-gray-300">
+                                    <i class="ri-logout-box-r-fill text-red-500 mr-2"></i>
+                                    Logout
+                                </a>
+                                {{-- <span class="text-white font-bold"> {{ Auth::user()->name }}</span>
                                 <x-dropdown>
                                     <x-dropdown.item class="" href="{{ route('logout') }}">
-                                        <i class="ri-logout-box-r-fill text-red-500 mr-2"></i>
-                                        Logout
+
                                     </x-dropdown.item>
-                                </x-dropdown>
+                                </x-dropdown> --}}
                             </div>
 
 
