@@ -16,13 +16,21 @@ class Weddings extends Component
 
     public function mount()
     {
-        $this->weddings = Wedding::all();
+        $this->loadWeddings();
     }
 
     public function updatedSearch()
     {
-        $this->weddings = Wedding::where('bride_name', 'like', '%' . $this->search . '%')
-            ->orWhere('groom_name', 'like', '%' . $this->search . '%')
+        $this->loadWeddings();
+    }
+
+    public function loadWeddings()
+    {
+        $this->weddings = Wedding::where('status', '!=', 'canceled')
+            ->where(function ($query) {
+                $query->where('bride_name', 'like', '%' . $this->search . '%')
+                    ->orWhere('groom_name', 'like', '%' . $this->search . '%');
+            })
             ->get();
     }
 
@@ -40,20 +48,35 @@ class Weddings extends Component
 
     public function approve($id)
     {
+
+        $wedding = Wedding::findOrFail($id);
+
+
+        if ($wedding->bride_age < 18 || $wedding->groom_age < 18) {
+            $this->notification()->error(
+                $title = 'Approval Denied',
+                $description = 'Both the bride and groom must be at least 18 years old.'
+            );
+            return;
+        }
+
         $wedding = Wedding::findOrFail($id);
         $wedding->status = 'approved';
         $wedding->save();
+
         $this->notification()->success(
             $title = 'Wedding Approved',
             $description = 'Wedding approved successfully'
         );
 
-        $this->weddings = Wedding::all();
+        $this->loadWeddings();
     }
 
-    public function sa(){
-$this->updatedSearch();
+    public function sa()
+    {
+        $this->updatedSearch();
     }
+
     public function cancel($id)
     {
         $wedding = Wedding::findOrFail($id);
@@ -64,7 +87,8 @@ $this->updatedSearch();
             $title = 'Wedding Cancelled',
             $description = 'Wedding canceled successfully!'
         );
-        $this->weddings = Wedding::all();
+
+        $this->loadWeddings();
     }
 
     public function render()

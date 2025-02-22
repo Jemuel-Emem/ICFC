@@ -56,6 +56,10 @@ Route::middleware([
             return view('admin.donations-list');
         })->name('admin.donation-list');
 
+        Route::get('/admin.updates', function(){
+            return view('admin.updates');
+        })->name('admin.updates');
+
      });
 
      Route::prefix('user')->middleware('user')->group(function(){

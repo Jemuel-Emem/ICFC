@@ -37,17 +37,17 @@
                             View Details
                         </button>
                         <button
-                            class="px-4 py-2 text-white {{ $wedding->status == 'approved' || $wedding->status == 'cancel' ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-500 hover:bg-green-700' }} rounded"
+                            class="px-4 py-2 text-white {{ $wedding->status == 'approved' || $wedding->status == 'canceled' ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-500 hover:bg-green-700' }} rounded"
                             wire:click="approve({{ $wedding->id }})"
-                            {{ $wedding->status == 'approved' || $wedding->status == 'cancel' ? 'disabled' : '' }}
+                            {{ $wedding->status == 'approved' || $wedding->status == 'canceled' ? 'disabled' : '' }}
                         >
                             Approve
                         </button>
 
                         <button
-                            class="px-4 py-2 text-white {{ $wedding->status == 'approved' || $wedding->status == 'cancel' ? 'bg-gray-500 cursor-not-allowed' : 'bg-red-500 hover:bg-red-700' }} rounded"
+                            class="px-4 py-2 text-white {{ $wedding->status == 'approved' || $wedding->status == 'canceled' ? 'bg-gray-500 cursor-not-allowed' : 'bg-red-500 hover:bg-red-700' }} rounded"
                             wire:click="cancel({{ $wedding->id }})"
-                            {{ $wedding->status == 'approved' || $wedding->status == 'cancel' ? 'disabled' : '' }}
+                            {{ $wedding->status == 'approved' || $wedding->status == 'canceled' ? 'disabled' : '' }}
                         >
                             Cancel
                         </button>

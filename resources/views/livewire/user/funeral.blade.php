@@ -1,4 +1,49 @@
 <div class="p-6 bg-gray-50">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+
+
+    <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
+        <h2 class="text-xl font-bold text-red-500 mb-2">Funerals Schedules</h2>
+        <div id="funeralCalendar"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var approvedEvents = @json($approvedSchedules);
+
+            console.log("Approved Funeral Dates:", approvedEvents); 
+
+            let funeralDates = approvedEvents;
+
+            console.log("Funeral Dates for Calendar:", funeralDates);
+
+            flatpickr("#funeralCalendar", {
+                inline: true,
+                dateFormat: "Y-m-d",
+                disableMobile: true,
+                enable: funeralDates,
+                onDayCreate: function(dObj, dStr, fp, dayElem) {
+                    let date = fp.formatDate(fp.parseDate(dayElem.dateObj), "Y-m-d");
+
+                    if (funeralDates.includes(date)) {
+                        dayElem.style.borderRadius = "50%";
+                        dayElem.style.padding = "5px";
+                        dayElem.style.backgroundColor = "#dc2626"; // Red
+                        dayElem.style.color = "white";
+
+                        let eventLabel = document.createElement("span");
+                        eventLabel.innerText = "✓";
+                        eventLabel.style.fontSize = "10px";
+                        eventLabel.style.display = "block";
+                        eventLabel.style.fontWeight = "bold";
+                        dayElem.appendChild(eventLabel);
+                    }
+                }
+            });
+        });
+    </script>
+
     <form wire:submit.prevent="submitForm" class="bg-white shadow-md rounded-lg p-6 border border-gray-200 space-y-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Funeral Details Form</h2>
 

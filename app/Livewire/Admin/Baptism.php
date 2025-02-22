@@ -15,10 +15,22 @@ class Baptism extends Component
 
     public function mount()
     {
-
-        $this->baptisms = bapp::all();
+        $this->loadBaptisms();
     }
 
+    public function updatedSearch()
+    {
+        $this->loadBaptisms();
+    }
+
+    public function loadBaptisms()
+    {
+        $this->baptisms = bapp::where('status', '!=', 'cancel')
+            ->where(function ($query) {
+                $query->where('child_name', 'like', '%' . $this->search . '%');
+            })
+            ->get();
+    }
 
     public function viewDetails($id)
     {
@@ -29,41 +41,43 @@ class Baptism extends Component
     public function approve($id)
     {
         $baptism = bapp::find($id);
-        $baptism->status = 'approved';
-        $baptism->save();
-        $this->notification()->success(
-            $title = 'Baptism Approved',
-            $description = 'Baptism approved successfully'
-        );
+        if ($baptism) {
+            $baptism->status = 'approved';
+            $baptism->save();
 
-        $this->mount();
+            $this->notification()->success(
+                $title = 'Baptism Approved',
+                $description = 'Baptism approved successfully'
+            );
+
+            $this->loadBaptisms();
+        }
     }
-
 
     public function cancel($id)
     {
         $baptism = bapp::find($id);
-        $baptism->status = 'cancel';
-        $baptism->save();
-        $this->notification()->success(
-            $title = 'Baptism Cancel',
-            $description = 'Baptism cancelled successfully'
-        );
+        if ($baptism) {
+            $baptism->status = 'cancel';
+            $baptism->save();
 
-        $this->mount();
+            $this->notification()->error(
+                $title = 'Baptism Canceled',
+                $description = 'Baptism canceled successfully!'
+            );
+
+            $this->loadBaptisms();
+        }
     }
-
 
     public function closeModal()
     {
         $this->showModal = false;
     }
 
-
     public function sa()
     {
-
-        $this->baptisms = bapp::where('child_name', 'like', '%' . $this->search . '%')->get();
+        $this->updatedSearch();
     }
 
     public function render()

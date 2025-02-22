@@ -9,19 +9,28 @@ use Livewire\Component;
 class Funeral extends Component
 {
     use Actions;
-    public $search;
+    public $search = '';
     public $funerals;
     public $showModal = false;
     public $selectedFuneral = null;
 
     public function mount()
     {
-        $this->funerals = Fune::all();
+        $this->loadFunerals();
     }
-    public function sa()
-    {
 
-        $this->funerals = Fune::where('name', 'like', '%' . $this->search . '%')->get();
+    public function updatedSearch()
+    {
+        $this->loadFunerals();
+    }
+
+    public function loadFunerals()
+    {
+        $this->funerals = Fune::where('status', '!=', 'cancel')
+            ->where(function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->get();
     }
 
     public function viewDetails($id)
@@ -33,29 +42,33 @@ class Funeral extends Component
     public function approve($id)
     {
         $funeral = Fune::find($id);
-        $funeral->status = 'approved';
-        $funeral->save();
+        if ($funeral) {
+            $funeral->status = 'approved';
+            $funeral->save();
 
-        $this->notification()->success(
-            $title = 'Funeral Approved',
-            $description = 'Funeral details approved successfully'
-        );
+            $this->notification()->success(
+                $title = 'Funeral Approved',
+                $description = 'Funeral details approved successfully'
+            );
 
-        $this->mount();
+            $this->loadFunerals();
+        }
     }
 
     public function cancel($id)
     {
         $funeral = Fune::find($id);
-        $funeral->status = 'cancel';
-        $funeral->save();
+        if ($funeral) {
+            $funeral->status = 'cancel';
+            $funeral->save();
 
-        $this->notification()->success(
-            $title = 'Funeral Cancelled',
-            $description = 'Funeral details cancelled successfully'
-        );
+            $this->notification()->error(
+                $title = 'Funeral Canceled',
+                $description = 'Funeral details canceled successfully!'
+            );
 
-        $this->mount();
+            $this->loadFunerals();
+        }
     }
 
     public function closeModal()
@@ -63,6 +76,10 @@ class Funeral extends Component
         $this->showModal = false;
     }
 
+    public function sa()
+    {
+        $this->updatedSearch();
+    }
 
     public function render()
     {

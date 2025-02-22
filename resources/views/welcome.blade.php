@@ -20,7 +20,7 @@
             <p class="mt-2 text-lg">Faith. Fellowship. Community.</p>
         </div>
         <nav class="mt-4 flex justify-center space-x-4">
-            <button onclick="showSection('dashboard')" class="px-4 py-2 bg-white text-amber-900 rounded hover:bg-gray-200">Dashboard</button>
+            <button onclick="showSection('dashboard')" class="px-4 py-2 bg-white text-amber-900 rounded hover:bg-gray-200">Home</button>
             <button onclick="showSection('services')" class="px-4 py-2 bg-white text-amber-900 rounded hover:bg-gray-200">Services</button>
             <button onclick="showSection('about')" class="px-4 py-2 bg-white text-amber-900 rounded hover:bg-gray-200">About Us</button>
            <a href="{{ route('login') }}"> <button  class="px-4 py-2 bg-white text-amber-900 rounded hover:bg-gray-200">Login</button></a>

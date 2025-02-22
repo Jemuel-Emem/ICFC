@@ -1,4 +1,50 @@
 <div class="p-6 bg-gray-50">
+    <!-- Wedding Date Picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+
+
+    <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
+        <h2 class="text-xl font-bold text-green-500 mb-2">Wedding Schedules</h2>
+        <div id="weddingCalendar"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var approvedEvents = @json($approvedSchedules);
+
+            console.log("Approved Events:", approvedEvents); // Debugging
+
+            let weddingDates = approvedEvents.map(event => event.date);
+
+            console.log("Wedding Dates:", weddingDates);
+
+            flatpickr("#weddingCalendar", {
+                inline: true,
+                dateFormat: "Y-m-d",
+                disableMobile: true,
+                enable: weddingDates,
+                onDayCreate: function(dObj, dStr, fp, dayElem) {
+                    let date = fp.formatDate(fp.parseDate(dayElem.dateObj), "Y-m-d");
+
+                    if (weddingDates.includes(date)) {
+                        dayElem.style.borderRadius = "50%";
+                        dayElem.style.padding = "5px";
+                        dayElem.style.backgroundColor = "#16a34a"; // Green
+                        dayElem.style.color = "white";
+
+                        let eventLabel = document.createElement("span");
+                        eventLabel.innerText = "✓";
+                        eventLabel.style.fontSize = "10px";
+                        eventLabel.style.display = "block";
+                        eventLabel.style.fontWeight = "bold";
+                        dayElem.appendChild(eventLabel);
+                    }
+                }
+            });
+        });
+    </script>
+
     <form class="bg-white shadow-md rounded-lg p-6 border border-gray-200 space-y-6" wire:submit.prevent="submitForm">
       <h2 class="text-2xl font-bold text-gray-800 mb-4">Wedding Details Form</h2>
 
@@ -20,11 +66,10 @@
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Place of Birth" wire:model="groom_place_of_birth" />
                 @error('groom_place_of_birth') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Age</label>
-                <input type="number" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Age" wire:model="groom_age" />
-                @error('groom_age') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
-            </div>
+        <div>
+    <label class="block text-sm font-medium text-gray-700">Age</label>
+    <input type="number" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="groom_age" readonly />
+</div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Residence</label>
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Residence" wire:model="groom_residence" />
@@ -42,8 +87,16 @@
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="groom_phone_number" />
-                @error('groom_phone_number') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+                <input
+                    type="text"
+                    class="w-full mt-1 border-gray-300 rounded-lg shadow-sm"
+                    placeholder="Phone Number"
+                    wire:model="groom_phone_number"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                />
+                @error('groom_phone_number')
+                    <span class="text-sm text-red-600">{{ $message }}</span>
+                @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Father's Name</label>
@@ -108,9 +161,11 @@
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="bride_phone_number" />
+                <input  oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                maxlength="10" type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="bride_phone_number" />
                 @error('bride_phone_number') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
+
             <div>
                 <label class="block text-sm font-medium text-gray-700">Father's Name</label>
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Father's Name" wire:model="bride_fathers_name" />
