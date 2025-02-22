@@ -4,7 +4,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 
-
         <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
             <h2 class="text-xl font-bold text-blue-500 mb-2">Baptism Schedules</h2>
             <div id="weddingCalendar"></div>
@@ -16,7 +15,7 @@
 
                 console.log("Approved Events:", approvedEvents); // Debugging
 
-                let weddingDates = approvedEvents.map(event => event.date);
+                let weddingDates = approvedEvents.map(event => event.start);
 
                 console.log("Wedding Dates:", weddingDates);
 
@@ -31,7 +30,7 @@
                         if (weddingDates.includes(date)) {
                             dayElem.style.borderRadius = "50%";
                             dayElem.style.padding = "5px";
-                            dayElem.style.backgroundColor = "#1d4ed8"; // Green
+                            dayElem.style.backgroundColor = "#1d4ed8"; // Blue
                             dayElem.style.color = "white";
 
                             let eventLabel = document.createElement("span");
@@ -45,7 +44,6 @@
                 });
             });
         </script>
-
         <form wire:submit.prevent="submitForm" class="bg-white shadow-md rounded-lg p-6 border border-gray-200 space-y-6">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Baptism Registration Form</h2>
 

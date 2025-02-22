@@ -2,34 +2,31 @@
 
 namespace App\Livewire\User;
 
-use App\Models\Funeral as Fune;
+use App\Models\Baptism as Bapt;
 use WireUi\Traits\Actions;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
-class Funeral extends Component
+class Baptism extends Component
 {
     use Actions;
 
-    public $name, $gender, $religion, $age, $place_of_birth, $date_of_death;
-    public $citizenship, $residence, $civil_status, $occupation, $funeral_date;
-    public $contact_person_name, $additional_information;
-    public $scheduledFunerals = [];
+    public $child_name, $child_gender, $child_dob, $child_place_of_birth;
+    public $father_name, $mother_name, $residence, $parents_phone_number;
+    public $preferred_baptism_date, $additional_information,$family_connection,$child_nationality;
+    public $scheduledBaptisms = [];
 
     // Validation Rules
     protected $rules = [
-        'name' => 'required|string|max:255',
-        'gender' => 'required|in:Male,Female',
-        'religion' => 'nullable|string|max:255',
-        'age' => 'nullable|integer|min:0',
-        'place_of_birth' => 'nullable|string|max:255',
-        'date_of_death' => 'required|date',
-        'citizenship' => 'nullable|string|max:255',
+        'child_name' => 'required|string|max:255',
+        'child_gender' => 'required|in:Male,Female',
+        'child_dob' => 'required|date',
+        'child_place_of_birth' => 'nullable|string|max:255',
+        'father_name' => 'required|string|max:255',
+        'mother_name' => 'required|string|max:255',
         'residence' => 'nullable|string|max:255',
-        'civil_status' => 'nullable|string|max:255',
-        'occupation' => 'nullable|string|max:255',
-        'funeral_date' => 'required|date',
-        'contact_person_name' => 'nullable|string|max:255',
+        'parents_phone_number' => 'required|string|max:15',
+        'preferred_baptism_date' => 'required|date',
         'additional_information' => 'nullable|string',
     ];
 
@@ -37,75 +34,70 @@ class Funeral extends Component
     {
         $this->validate();
 
-        // Check if the selected funeral date is already booked
-        $existingFuneral = Fune::where('funeral_date', $this->funeral_date)->exists();
+        // Check if the selected baptism date is already booked
+        $existingBaptism = Bapt::where('preferred_baptism_date', $this->preferred_baptism_date)->exists();
 
-        if ($existingFuneral) {
+        if ($existingBaptism) {
             $this->notification()->error(
                 $title = 'Date Unavailable',
-                $description = 'The selected funeral date is already booked. Please choose another date.'
+                $description = 'The selected baptism date is already booked. Please choose another date.'
             );
             return;
         }
 
-        Fune::create([
+        // Create a new baptism record
+        Bapt::create([
             'user_id' => Auth::id(),
-            'name' => $this->name,
-            'gender' => $this->gender,
-            'religion' => $this->religion,
-            'age' => $this->age,
-            'place_of_birth' => $this->place_of_birth,
-            'date_of_death' => $this->date_of_death,
-            'citizenship' => $this->citizenship,
+            'child_name' => $this->child_name,
+            'child_gender' => $this->child_gender,
+            'child_dob' => $this->child_dob,
+            'child_place_of_birth' => $this->child_place_of_birth,
+            'father_name' => $this->father_name,
+            'mother_name' => $this->mother_name,
             'residence' => $this->residence,
-            'civil_status' => $this->civil_status,
-            'occupation' => $this->occupation,
-            'funeral_date' => $this->funeral_date,
-            'contact_person_name' => $this->contact_person_name,
+            'family_connection' => $this->family_connection,
+            'child_nationality' => $this->child_nationality,
+            'parents_phone_number' => $this->parents_phone_number,
+            'preferred_baptism_date' => $this->preferred_baptism_date,
             'additional_information' => $this->additional_information,
             'status' => 'pending',
         ]);
 
         $this->notification()->success(
-            $title = 'Funeral Data Saved',
-            $description = 'Funeral registration submitted successfully!'
+            $title = 'Baptism Data Saved',
+            $description = 'Baptism registration submitted successfully!'
         );
 
         $this->reset();
-        $this->loadScheduledFunerals(); // Refresh the funeral schedule list
+        $this->loadScheduledBaptisms();
     }
 
-    // Fetch scheduled funerals for the calendar
+    // Fetch approved baptisms for the calendar
     public function getApprovedSchedulesProperty()
     {
-        return Fune::where('status', 'approved')
-            ->select('funeral_date as date')
+        return Bapt::where('status', 'approved')
+            ->select('preferred_baptism_date as date')
             ->get()
             ->toArray();
     }
 
     public function mount()
     {
-        $this->loadScheduledFunerals();
+        $this->loadScheduledBaptisms();
     }
 
-    public function loadScheduledFunerals()
+    public function loadScheduledBaptisms()
     {
-        $this->scheduledFunerals = Fune::where('status', 'approved')
-            ->select('funeral_date as start', 'name as title')
+        $this->scheduledBaptisms = Bapt::where('status', 'approved')
+            ->select('preferred_baptism_date as start', 'child_name as title')
             ->get()
             ->toArray();
     }
 
     public function render()
     {
-        $approvedSchedules = Fune::where('status', 'approved')
-            ->select('funeral_date as date')
-            ->get()
-            ->toArray();
-
-        return view('livewire.user.funeral', [
-            'approvedSchedules' => $approvedSchedules
+        return view('livewire.user.baptism', [
+            'approvedSchedules' => $this->scheduledBaptisms
         ]);
     }
 }
