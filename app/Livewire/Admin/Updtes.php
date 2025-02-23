@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire\Admin;
-
+use WireUi\Traits\Actions;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\updates as Update; // Import the Update model
@@ -9,7 +9,7 @@ use App\Models\updates as Update; // Import the Update model
 class Updtes extends Component
 {
     use WithFileUploads;
-
+    use Actions;
     public $showModal = false;
     public $title,$updateId;
     public $content;
@@ -91,7 +91,7 @@ class Updtes extends Component
     {
         Update::findOrFail($id)->delete();
         $this->notification()->success('Deleted', 'Update has been removed.');
-        $this->dispatch('refreshList');
+
     }
 
 
