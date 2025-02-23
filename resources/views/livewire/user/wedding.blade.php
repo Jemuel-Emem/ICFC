@@ -66,10 +66,10 @@
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Place of Birth" wire:model="groom_place_of_birth" />
                 @error('groom_place_of_birth') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
-        <div>
+        {{-- <div>
     <label class="block text-sm font-medium text-gray-700">Age</label>
     <input type="number" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="groom_age" readonly />
-</div>
+</div> --}}
             <div>
                 <label class="block text-sm font-medium text-gray-700">Residence</label>
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Residence" wire:model="groom_residence" />
@@ -139,11 +139,11 @@
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Place of Birth" wire:model="bride_place_of_birth" />
                 @error('bride_place_of_birth') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
-            <div>
+            {{-- <div>
                 <label class="block text-sm font-medium text-gray-700">Age</label>
                 <input type="number" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Age" wire:model="bride_age" />
                 @error('bride_age') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
-            </div>
+            </div> --}}
             <div>
                 <label class="block text-sm font-medium text-gray-700">Residence</label>
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Residence" wire:model="bride_residence" />

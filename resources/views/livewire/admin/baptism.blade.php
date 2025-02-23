@@ -97,7 +97,9 @@
                         <div>
                             <h4 class="text-lg font-semibold mb-2">Baptism Details</h4>
                             <p><strong>Preferred Baptism Date:</strong> {{ $selectedBaptism->preferred_baptism_date }}</p>
-                            <p><strong>Status:</strong> {{ $selectedBaptism->status }}</p>
+                            <p><strong>Email:</strong> {{ $selectedBaptism->user->email ?? 'N/A' }}</p>
+
+
                         </div>
                     </div>
                 @endif

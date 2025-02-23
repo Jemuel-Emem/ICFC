@@ -104,6 +104,8 @@
                             <p><strong>Funeral Date:</strong> {{ $selectedFuneral->funeral_date }}</p>
                             <p><strong>Additional Information:</strong> {{ $selectedFuneral->additional_information }}</p>
                             <p><strong>Status:</strong> {{ ucfirst($selectedFuneral->status) }}</p>
+                            <p><strong>Email:</strong> {{ $selectedFuneral->user->email ?? 'N/A' }}</p>
+
                         </div>
                     </div>
                 @endif

@@ -70,7 +70,7 @@ class Funeral extends Component
         );
 
         $this->reset();
-        $this->loadApprovedSchedules(); // Refresh the funeral schedule list
+        return redirect()->route('user-dashboard');
     }
 
     public function mount()

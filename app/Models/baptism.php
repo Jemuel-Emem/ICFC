@@ -24,4 +24,10 @@ class baptism extends Model
         'preferred_baptism_date',
         'status',
     ];
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
 }

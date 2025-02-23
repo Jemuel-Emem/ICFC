@@ -90,6 +90,7 @@
                             <p><strong>Citizenship:</strong> {{ $selectedWedding->bride_citizenship }}</p>
                             <p><strong>Person Giving Consent:</strong> {{ $selectedWedding->bride_advisor_name }}</p>
                             <p><strong>Relationship to Advisor:</strong> {{ $selectedWedding->bride_relationship_to_advisor }}</p>
+
                         </div>
 
                         <!-- Groom Details -->
@@ -115,6 +116,9 @@
                             <p><strong>Wedding Date:</strong> {{ $selectedWedding->wedding_date }}</p>
                             <p><strong>Special Requests:</strong></p>
                             <p>{{ $selectedWedding->special_requests }}</p>
+
+                            <p><strong>Email:</strong> {{ $selectedWedding->user->email ?? 'No email found' }}</p>
+
                         </div>
                     </div>
                 @endif

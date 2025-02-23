@@ -36,9 +36,10 @@ class Weddings extends Component
 
     public function viewDetails($id)
     {
-        $this->selectedWedding = Wedding::findOrFail($id);
+        $this->selectedWedding = Wedding::with('user')->findOrFail($id);
         $this->showModal = true;
     }
+
 
     public function closeModal()
     {
@@ -52,7 +53,7 @@ class Weddings extends Component
         $wedding = Wedding::findOrFail($id);
 
 
-        if ($wedding->bride_age < 18 || $wedding->groom_age < 18) {
+        if ($wedding->bride_age < 18 && $wedding->groom_age < 18) {
             $this->notification()->error(
                 $title = 'Approval Denied',
                 $description = 'Both the bride and groom must be at least 18 years old.'

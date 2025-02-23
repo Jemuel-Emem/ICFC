@@ -69,7 +69,7 @@ class Baptism extends Component
         );
 
         $this->reset();
-        $this->loadScheduledBaptisms();
+        return redirect()->route('user-dashboard');
     }
 
     // Fetch approved baptisms for the calendar

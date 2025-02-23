@@ -118,9 +118,18 @@
                 <!-- Phone Number of Parents -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Phone Number of Parents</label>
-                    <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="parents_phone_number" />
-                    @error('parents_phone_number') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    <input type="tel"
+                           class="w-full mt-1 border-gray-300 rounded-lg shadow-sm"
+                           placeholder="Phone Number"
+                           wire:model.lazy="parents_phone_number"
+                           pattern="[0-9]{10,15}"
+                           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                           maxlength="15" />
+                    @error('parents_phone_number')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
+
 
                 <!-- Preferred Baptism Date -->
                 <div>

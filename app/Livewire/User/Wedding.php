@@ -73,7 +73,7 @@ class Wedding extends Component
             $description = 'Wedding details saved successfully!'
         );
 
-        return redirect()->route('user-status');
+        return redirect()->route('user-dashboard');
 
     }
     public function updatedGroomBirthdate($value)

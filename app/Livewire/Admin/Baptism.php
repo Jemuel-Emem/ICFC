@@ -34,9 +34,10 @@ class Baptism extends Component
 
     public function viewDetails($id)
     {
-        $this->selectedBaptism = bapp::find($id);
+        $this->selectedBaptism = bapp::with('user')->find($id);
         $this->showModal = true;
     }
+
 
     public function approve($id)
     {
