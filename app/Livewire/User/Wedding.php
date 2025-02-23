@@ -3,6 +3,7 @@
 namespace App\Livewire\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\wedding as wed;
+
 use WireUi\Traits\Actions;
 use Livewire\Component;
 
@@ -24,7 +25,7 @@ class Wedding extends Component
             'groom_name' => 'required|string|max:255',
             'groom_birthdate' => 'required|date',
             'groom_place_of_birth' => 'required|string|max:255',
-            'groom_age' => 'required|integer|min:18',
+        //  'groom_age' => 'required|integer|min:18',
             'groom_residence' => 'required|string|max:255',
             'groom_religion' => 'required|string|max:255',
             'groom_civil_status' => 'required|string|max:255',
@@ -36,7 +37,7 @@ class Wedding extends Component
             'bride_name' => 'required|string|max:255',
             'bride_birthdate' => 'required|date',
             'bride_place_of_birth' => 'required|string|max:255',
-            'bride_age' => 'required|integer|min:18',
+       //   'bride_age' => 'required|integer|min:18',
             'bride_residence' => 'required|string|max:255',
             'bride_religion' => 'required|string|max:255',
             'bride_civil_status' => 'required|string|max:255',
@@ -52,7 +53,16 @@ class Wedding extends Component
 
     public function submitForm()
     {
+        if ($this->groom_age < 18 || $this->bride_age < 18) {
+            $this->notification()->error(
+                $title = 'Denied',
+                $description = 'Both the bride and groom must be at least 18 years old.'
+            );
+            return;
+        }
         $this->validate();
+
+
         if (wed::where('wedding_date', $this->wedding_date)->exists()) {
             $this->notification()->error('Error', 'A wedding is already scheduled on this date.');
             return;

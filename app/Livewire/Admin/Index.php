@@ -18,10 +18,18 @@ class Index extends Component
     {
         $currentYear = Carbon::now()->year;
 
-        // Count total events for this year
-        $this->totalWeddings = Wedding::whereYear('wedding_date', $currentYear)->count();
-        $this->totalBaptisms = Baptism::whereYear('preferred_baptism_date', $currentYear)->count();
-        $this->totalFunerals = Funeral::whereYear('funeral_date', $currentYear)->count();
+        // Count only approved events for this year
+        $this->totalWeddings = Wedding::where('status', 'approved')
+            ->whereYear('wedding_date', $currentYear)
+            ->count();
+
+        $this->totalBaptisms = Baptism::where('status', 'approved')
+            ->whereYear('preferred_baptism_date', $currentYear)
+            ->count();
+
+        $this->totalFunerals = Funeral::where('status', 'approved')
+            ->whereYear('funeral_date', $currentYear)
+            ->count();
 
         // Fetch all approved events with proper date formatting
         $weddings = Wedding::where('status', 'approved')
