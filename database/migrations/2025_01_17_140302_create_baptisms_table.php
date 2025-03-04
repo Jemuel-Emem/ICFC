@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('residence');
             $table->string('parents_phone_number');
             $table->date('preferred_baptism_date');
+            $table->string('time_schedule');
+            $table->string('requirements')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

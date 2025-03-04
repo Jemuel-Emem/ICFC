@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('contact_person_name');
             $table->text('additional_information')->nullable();
             $table->string('status')->default('pending');
+            $table->string('time_schedule');
+            $table->string('requirements')->nullable();
             $table->timestamps();
         });
     }

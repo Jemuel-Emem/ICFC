@@ -4,16 +4,17 @@ namespace App\Livewire\User;
 
 use App\Models\Funeral as Fune;
 use WireUi\Traits\Actions;
+use Livewire\WithFileUploads;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 class Funeral extends Component
 {
     use Actions;
-
-    public $name, $gender, $religion, $age, $place_of_birth, $date_of_death;
+    use WithFileUploads;
+    public $name,$requirements, $gender, $religion, $age, $place_of_birth, $date_of_death;
     public $citizenship, $residence, $civil_status, $occupation, $funeral_date;
-    public $contact_person_name, $additional_information;
+    public $contact_person_name,$time_schedule, $additional_information;
     public $approvedSchedules = [];
 
     // Validation Rules
@@ -28,9 +29,11 @@ class Funeral extends Component
         'residence' => 'nullable|string|max:255',
         'civil_status' => 'nullable|string|max:255',
         'occupation' => 'nullable|string|max:255',
-        'funeral_date' => 'required|date',
+        'funeral_date' => 'required|date|after_or_equal:today',
         'contact_person_name' => 'nullable|string|max:255',
         'additional_information' => 'nullable|string',
+        'time_schedule' => 'required|string|max:20',
+        'requirements' => 'required|file|mimes:pdf,jpg,png|max:2048',
     ];
 
     public function submitForm()
@@ -38,14 +41,22 @@ class Funeral extends Component
         $this->validate();
 
 
-        if (Fune::where('funeral_date', $this->funeral_date)->exists()) {
+        $existingFuneral = Fune::where('funeral_date', $this->funeral_date)
+            ->where('time_schedule', $this->time_schedule)
+            ->where('status', 'approved')
+            ->exists();
+
+        if ($existingFuneral) {
             $this->notification()->error(
-                'Date Unavailable',
-                'The selected funeral date is already booked. Please choose another date.'
+                'Schedule Unavailable',
+                'The selected funeral date and time slot are already booked. Please choose another time.'
             );
             return;
         }
-
+        $filePath = null;
+        if ($this->requirements) {
+            $filePath = $this->requirements->store('requirements', 'public'); // Store the file
+        }
         Fune::create([
             'user_id' => Auth::id(),
             'name' => $this->name,
@@ -61,6 +72,8 @@ class Funeral extends Component
             'funeral_date' => $this->funeral_date,
             'contact_person_name' => $this->contact_person_name,
             'additional_information' => $this->additional_information,
+            'time_schedule' => $this->time_schedule,
+            'requirements' => $filePath,
             'status' => 'pending',
         ]);
 

@@ -7,6 +7,7 @@
                 <th class="p-4">Type</th>
                 <th class="p-4">Name</th>
                 <th class="p-4">Date</th>
+                <th class="p-4">Time</th>
                 <th class="p-4">Status</th>
             </tr>
         </thead>
@@ -18,12 +19,15 @@
                     @if($appointment->type == 'Baptism')
                         <td class="p-4">{{ $appointment->child_name }}</td>
                         <td class="p-4">{{ $appointment->preferred_baptism_date }}</td>
+                        <td class="p-4">{{ $appointment->time_schedule }}</td>
                     @elseif($appointment->type == 'Wedding')
                         <td class="p-4">{{ $appointment->bride_name }} &amp; {{ $appointment->groom_name }}</td>
                         <td class="p-4">{{ $appointment->wedding_date }}</td>
+                        <td class="p-4">{{ $appointment->time_schedule }}</td>
                     @else
                         <td class="p-4">{{ $appointment->name }}</td>
                         <td class="p-4">{{ $appointment->funeral_date }}</td>
+                        <td class="p-4">{{ $appointment->time_schedule }}</td>
                     @endif
 
                     <td class="p-4">{{ ucfirst($appointment->status) }}</td>

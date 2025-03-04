@@ -3,7 +3,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 
 
-    <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
+    {{-- <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
         <h2 class="text-xl font-bold text-red-500 mb-2">Funerals Schedules</h2>
         <div id="funeralCalendar"></div>
     </div>
@@ -12,7 +12,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var approvedEvents = @json($approvedSchedules);
 
-            console.log("Approved Funeral Dates:", approvedEvents); 
+            console.log("Approved Funeral Dates:", approvedEvents);
 
             let funeralDates = approvedEvents;
 
@@ -42,7 +42,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <form wire:submit.prevent="submitForm" class="bg-white shadow-md rounded-lg p-6 border border-gray-200 space-y-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Funeral Details Form</h2>
@@ -135,7 +135,27 @@
                 <input type="text" wire:model="contact_person_name" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Contact Person Name" />
                 @error('contact_person_name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Time Schedule</label>
+                <select class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="time_schedule">
+                    <option value="">Select Time Slot</option>
+                    <option value="8am-11am">8am - 11am</option>
+                    <option value="11am-1pm">11am - 1pm</option>
+                    <option value="1pm-3pm">1pm - 3pm</option>
+                    <option value="3pm-5pm">3pm - 5pm</option>
+                </select>
+                @error('time_schedule') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
 
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Upload Requirement</label>
+                <input type="file" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="requirements">
+                @error('requirements') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                @if ($requirements)
+                    <p class="mt-2 text-sm text-gray-500">Uploaded file: {{ $requirements->getClientOriginalName() }}</p>
+                @endif
+            </div>
             <!-- Additional Information -->
             <div class="col-span-full">
                 <label class="block text-sm font-medium text-gray-700">Additional Information</label>

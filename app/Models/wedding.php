@@ -15,7 +15,7 @@ class wedding extends Model
         'bride_name', 'bride_birthdate', 'bride_place_of_birth', 'bride_age', 'bride_residence',
         'bride_religion', 'bride_civil_status', 'bride_phone_number', 'bride_fathers_name',
         'bride_citizenship', 'bride_advisor_name', 'bride_relationship_to_advisor',
-        'wedding_date', 'special_requests'
+        'wedding_date', 'special_requests','time_schedule','requirements'
     ];
     public function user()
     {

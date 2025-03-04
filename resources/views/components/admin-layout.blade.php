@@ -132,7 +132,7 @@
                     <a href="{{ route('admin.certificate') }}"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                         <i class="ri-folder-6-fill"></i>
-                        <span class="ml-3">Certificates</span>
+                        <span class="ml-3">Certificate</span>
                     </a>
                 </li>
 

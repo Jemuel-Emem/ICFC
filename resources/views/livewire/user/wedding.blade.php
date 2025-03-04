@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 
-
+{{--
     <div class="mt-6 p-6 bg-white shadow-md flex justify-center flex-col">
         <h2 class="text-xl font-bold text-green-500 mb-2">Wedding Schedules</h2>
         <div id="weddingCalendar"></div>
@@ -43,7 +43,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <form class="bg-white shadow-md rounded-lg p-6 border border-gray-200 space-y-6" wire:submit.prevent="submitForm">
       <h2 class="text-2xl font-bold text-gray-800 mb-4">Wedding Details Form</h2>
@@ -162,7 +162,7 @@
             <div>
                 <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input  oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                maxlength="10" type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="bride_phone_number" />
+                maxlength="11" type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="bride_phone_number" />
                 @error('bride_phone_number') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
 
@@ -197,6 +197,28 @@
                 <input type="date" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="wedding_date" />
                 @error('wedding_date') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Time Schedule</label>
+                <select class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="time_schedule">
+                    <option value="">Select Time Slot</option>
+                    <option value="8am-11am">8am - 11am</option>
+                    <option value="11am-1pm">11am - 1pm</option>
+                    <option value="1pm-3pm">1pm - 3pm</option>
+                    <option value="3pm-5pm">3pm - 5pm</option>
+                </select>
+                @error('time_schedule') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Upload Requirement</label>
+                <input type="file" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="requirements">
+                @error('requirements') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                @if ($requirements)
+                    <p class="mt-2 text-sm text-gray-500">Uploaded file: {{ $requirements->getClientOriginalName() }}</p>
+                @endif
+            </div>
+
             <div class="col-span-3">
                 <label class="block text-sm font-medium text-gray-700">Special Requests</label>
                 <textarea class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" rows="4" placeholder="Any special requests" wire:model="special_requests"></textarea>

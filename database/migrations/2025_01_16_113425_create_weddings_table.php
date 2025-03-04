@@ -41,6 +41,8 @@ return new class extends Migration
             $table->string('bride_relationship_to_advisor');
             $table->date('wedding_date');
             $table->text('special_requests')->nullable();
+            $table->string('time_schedule');
+            $table->string('requirements')->nullable();
             $table->timestamps();
         });
     }

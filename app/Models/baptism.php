@@ -22,7 +22,9 @@ class baptism extends Model
         'residence',
         'parents_phone_number',
         'preferred_baptism_date',
+        'time_schedule',
         'status',
+        'requirements'
     ];
 
     public function user()

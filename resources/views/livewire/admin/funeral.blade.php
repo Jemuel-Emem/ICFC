@@ -105,7 +105,12 @@
                             <p><strong>Additional Information:</strong> {{ $selectedFuneral->additional_information }}</p>
                             <p><strong>Status:</strong> {{ ucfirst($selectedFuneral->status) }}</p>
                             <p><strong>Email:</strong> {{ $selectedFuneral->user->email ?? 'N/A' }}</p>
-
+                            @if ($selectedFuneral->requirements)
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold">Requirement</h4>
+                                <img src="{{ Storage::url($selectedFuneral->requirements) }}" alt="Requirement Image" class="w-full max-w-xs rounded-lg shadow-md">
+                            </div>
+                        @endif
                         </div>
                     </div>
                 @endif

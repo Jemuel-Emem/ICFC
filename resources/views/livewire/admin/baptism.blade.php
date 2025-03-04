@@ -99,7 +99,12 @@
                             <p><strong>Preferred Baptism Date:</strong> {{ $selectedBaptism->preferred_baptism_date }}</p>
                             <p><strong>Email:</strong> {{ $selectedBaptism->user->email ?? 'N/A' }}</p>
 
-
+                            @if ($selectedBaptism->requirements)
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold">Requirement</h4>
+                                <img src="{{ Storage::url($selectedBaptism->requirements) }}" alt="Requirement Image" class="w-full max-w-xs rounded-lg shadow-md">
+                            </div>
+                        @endif
                         </div>
                     </div>
                 @endif

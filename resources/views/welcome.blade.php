@@ -37,7 +37,7 @@
                     </p>
                 </div>
                 <div class="w-1/2 flex justify-center ">
-                    <img src="{{ asset('images/ch2.jpg') }}" alt="Church Logo" class="max-w-full h-auto">
+                    <img src="{{ asset('images/hsas.jpg') }}" alt="Church Logo" class="max-w-full h-auto">
                 </div>
             </div>
         </div>

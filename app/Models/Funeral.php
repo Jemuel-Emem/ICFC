@@ -24,7 +24,9 @@ class Funeral extends Model
         'funeral_date',
         'contact_person_name',
         'additional_information',
+        'time_schedule',
         'status',
+        'requirements'
     ];
 
     public function user()
