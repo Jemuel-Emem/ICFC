@@ -95,10 +95,13 @@ class Wedding extends Component
         return;
     }
 
-    if (wed::where('wedding_date', $this->wedding_date)->exists()) {
-        $this->notification()->error('Error', 'A wedding is already scheduled on this date.');
-        return;
-    }
+    if (wed::where('wedding_date', $this->wedding_date)
+    ->whereIn('status', ['approved', 'pending'])
+    ->exists()) {
+$this->notification()->error('Error', 'A wedding is already scheduled on this date.');
+return;
+}
+
 
     // Ensure file upload works
     $filePath = null;

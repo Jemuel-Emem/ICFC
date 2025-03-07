@@ -228,7 +228,7 @@
             document.getElementById('printSponsors').innerText = document.getElementById('sponsors').value;
             document.getElementById('printOfficiatingPriest').innerText = document.getElementById('officiatingPriest').value;
 
-            // Trigger print
+
             window.print();
         }
     </script>

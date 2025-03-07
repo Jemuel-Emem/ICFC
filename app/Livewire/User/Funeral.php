@@ -47,12 +47,19 @@ class Funeral extends Component
             ->where('status', 'approved')
             ->exists();
 
+            $existingFuneral = Funeral::where('funeral_date', $this->funeral_date)
+            ->where('time_schedule', $this->time_schedule)
+            ->whereIn('status', ['approved', 'pending'])
+            ->exists();
+
         if ($existingFuneral) {
             $this->notification()->error(
                 'Schedule Unavailable',
                 'The selected funeral date and time slot are already booked. Please choose another time.'
             );
             return;
+
+
         }
         $filePath = null;
         if ($this->requirements) {

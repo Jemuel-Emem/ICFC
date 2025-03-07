@@ -43,6 +43,11 @@ class Baptism extends Component
         ->where('status', 'approved')
         ->exists();
 
+        $existingBaptism = Baptism::where('preferred_baptism_date', $this->preferred_baptism_date)
+        ->where('time_schedule', $this->time_schedule)
+        ->whereIn('status', ['approved', 'pending'])
+        ->exists();
+
     if ($existingBaptism) {
         $this->notification()->error(
             'Time Slot Unavailable',
@@ -50,6 +55,7 @@ class Baptism extends Component
         );
         return;
     }
+
         // Check if the selected baptism date is already booked
         // $existingBaptism = Bapt::where('preferred_baptism_date', $this->preferred_baptism_date)->exists();
 
