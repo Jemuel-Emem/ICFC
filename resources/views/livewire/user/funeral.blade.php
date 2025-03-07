@@ -135,6 +135,15 @@
                 <input type="text" wire:model="contact_person_name" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Contact Person Name" />
                 @error('contact_person_name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
+
+
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Contact Person Number</label>
+                <input  oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                maxlength="11" type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="contact_person_number" />
+                @error('contact_person_number') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+            </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Time Schedule</label>
                 <select class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="time_schedule">
@@ -148,7 +157,7 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Upload Requirement</label>
+                <label class="block text-sm font-medium text-gray-700">Upload Requirement(Death Certificate)</label>
                 <input type="file" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="requirements">
                 @error('requirements') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 

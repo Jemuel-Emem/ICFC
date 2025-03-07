@@ -105,6 +105,7 @@
                                 <img src="{{ Storage::url($selectedBaptism->requirements) }}" alt="Requirement Image" class="w-full max-w-xs rounded-lg shadow-md">
                             </div>
                         @endif
+                        <p class="mt-4 font-black text-2xl"><strong>Time Schedule:</strong> {{ $selectedBaptism-->time_schedule }}</p>
                         </div>
                     </div>
                 @endif

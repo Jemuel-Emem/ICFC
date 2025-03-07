@@ -14,7 +14,7 @@ class Funeral extends Component
     use WithFileUploads;
     public $name,$requirements, $gender, $religion, $age, $place_of_birth, $date_of_death;
     public $citizenship, $residence, $civil_status, $occupation, $funeral_date;
-    public $contact_person_name,$time_schedule, $additional_information;
+    public $contact_person_name,$time_schedule, $additional_information,$contact_person_number;
     public $approvedSchedules = [];
 
     // Validation Rules
@@ -31,6 +31,7 @@ class Funeral extends Component
         'occupation' => 'nullable|string|max:255',
         'funeral_date' => 'required|date|after_or_equal:today',
         'contact_person_name' => 'nullable|string|max:255',
+        'contact_person_number' => 'nullable|string|max:11',
         'additional_information' => 'nullable|string',
         'time_schedule' => 'required|string|max:20',
         'requirements' => 'required|file|mimes:pdf,jpg,png|max:2048',
@@ -71,6 +72,7 @@ class Funeral extends Component
             'occupation' => $this->occupation,
             'funeral_date' => $this->funeral_date,
             'contact_person_name' => $this->contact_person_name,
+            'contact_person_number' => $this->contact_person_number,
             'additional_information' => $this->additional_information,
             'time_schedule' => $this->time_schedule,
             'requirements' => $filePath,

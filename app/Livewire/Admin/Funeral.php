@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire\Admin;
-
+use Illuminate\Support\Facades\Mail;
 use WireUi\Traits\Actions;
 use App\Models\Funeral as Fune;
 use Livewire\Component;
@@ -45,7 +45,7 @@ class Funeral extends Component
         if ($funeral) {
             $funeral->status = 'approved';
             $funeral->save();
-
+            $this->sendEmailNotification($funeral->user->email, 'APPROVED');
             $this->notification()->success(
                 $title = 'Funeral Approved',
                 $description = 'Funeral details approved successfully'
@@ -61,7 +61,7 @@ class Funeral extends Component
         if ($funeral) {
             $funeral->status = 'cancel';
             $funeral->save();
-
+            $this->sendEmailNotification($funeral->user->email, 'CANCELLED');
             $this->notification()->error(
                 $title = 'Funeral Canceled',
                 $description = 'Funeral details canceled successfully!'
@@ -70,7 +70,25 @@ class Funeral extends Component
             $this->loadFunerals();
         }
     }
+    private function sendEmailNotification($email, $status)
+    {
+        if (!$email) {
+            return;
+        }
 
+        $subject = "Baptism Status Update - ICFC";
+        $message = "
+            <p>Dear User,</p>
+            <p>Your baptism request has been <strong>{$status}</strong>.</p>
+            <p>Thank you,<br>ICFC</p>
+        ";
+
+        Mail::send([], [], function ($mail) use ($email, $subject, $message) {
+            $mail->to($email)
+                ->subject($subject)
+                ->html($message);
+        });
+    }
     public function closeModal()
     {
         $this->showModal = false;

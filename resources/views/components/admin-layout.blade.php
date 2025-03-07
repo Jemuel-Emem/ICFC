@@ -84,7 +84,7 @@
                             <img src="{{ asset('images/alogo.png') }}" alt="Logo" class="w-32 h-16 rounded-lg">
                         </div>
                         <div class="text-center mt-2">
-                            <label for="" class="font-black text-white text-xl" id="logo">GPFCI</label>
+                            <label for="" class="font-black text-white text-xl" id="logo">ICFC</label>
                         </div>
                     </div>
                 </a>

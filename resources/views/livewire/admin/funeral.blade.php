@@ -111,6 +111,8 @@
                                 <img src="{{ Storage::url($selectedFuneral->requirements) }}" alt="Requirement Image" class="w-full max-w-xs rounded-lg shadow-md">
                             </div>
                         @endif
+
+                        <p class="mt-4 font-black text-2xl"><strong>Time Schedule:</strong> {{ $selectedFuneral->time_schedule }}</p>
                         </div>
                     </div>
                 @endif

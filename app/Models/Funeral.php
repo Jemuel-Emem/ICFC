@@ -23,6 +23,7 @@ class Funeral extends Model
         'occupation',
         'funeral_date',
         'contact_person_name',
+        'contact_person_number',
         'additional_information',
         'time_schedule',
         'status',

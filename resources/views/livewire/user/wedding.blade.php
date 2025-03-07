@@ -85,7 +85,7 @@
                 <input type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Civil Status" wire:model="groom_civil_status" />
                 @error('groom_civil_status') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
-            <div>
+            {{-- <div>
                 <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input
                     type="text"
@@ -97,6 +97,13 @@
                 @error('groom_phone_number')
                     <span class="text-sm text-red-600">{{ $message }}</span>
                 @enderror
+            </div> --}}
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input  oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                maxlength="11" type="text" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" placeholder="Phone Number" wire:model="groom_phone_number" />
+                @error('groom_phone_number') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Father's Name</label>
@@ -210,7 +217,7 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Upload Requirement</label>
+                <label class="block text-sm font-medium text-gray-700">Upload Requirement (Marriage License )</label>
                 <input type="file" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="requirements">
                 @error('requirements') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 

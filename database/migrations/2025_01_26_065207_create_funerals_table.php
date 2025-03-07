@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->date('funeral_date');
             $table->string('contact_person_name');
+            $table->string('contact_person_number');
             $table->text('additional_information')->nullable();
             $table->string('status')->default('pending');
             $table->string('time_schedule');

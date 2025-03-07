@@ -125,6 +125,7 @@
                             </div>
                         @endif
 
+                        <p class="mt-4 font-black text-2xl"><strong>Time Schedule:</strong> {{ $selectedWedding->time_schedule }}</p>
                         </div>
                     </div>
                 @endif

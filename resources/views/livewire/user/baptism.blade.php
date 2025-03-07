@@ -151,7 +151,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Upload Requirement</label>
+                    <label class="block text-sm font-medium text-gray-700">Upload Requirement(Birth Certificate )</label>
                     <input type="file" class="w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model="requirements">
                     @error('requirements') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 

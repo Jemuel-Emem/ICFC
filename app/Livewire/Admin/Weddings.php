@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire\Admin;
-
+use Illuminate\Support\Facades\Mail;
 use App\Models\Wedding;
 use WireUi\Traits\Actions;
 use Livewire\Component;
@@ -40,7 +40,25 @@ class Weddings extends Component
         $this->showModal = true;
     }
 
+    private function sendEmailNotification($email, $status)
+    {
+        if (!$email) {
+            return;
+        }
 
+        $subject = "Baptism Status Update - ICFC";
+        $message = "
+            <p>Dear User,</p>
+            <p>Your baptism request has been <strong>{$status}</strong>.</p>
+            <p>Thank you,<br>ICFC</p>
+        ";
+
+        Mail::send([], [], function ($mail) use ($email, $subject, $message) {
+            $mail->to($email)
+                ->subject($subject)
+                ->html($message);
+        });
+    }
     public function closeModal()
     {
         $this->showModal = false;
@@ -64,7 +82,7 @@ class Weddings extends Component
         $wedding = Wedding::findOrFail($id);
         $wedding->status = 'approved';
         $wedding->save();
-
+        $this->sendEmailNotification($wedding->user->email, 'APPROVED');
         $this->notification()->success(
             $title = 'Wedding Approved',
             $description = 'Wedding approved successfully'
@@ -83,7 +101,7 @@ class Weddings extends Component
         $wedding = Wedding::findOrFail($id);
         $wedding->status = 'canceled';
         $wedding->save();
-
+        $this->sendEmailNotification($wedding->user->email, 'CANCELLED');
         $this->notification()->error(
             $title = 'Wedding Cancelled',
             $description = 'Wedding canceled successfully!'
