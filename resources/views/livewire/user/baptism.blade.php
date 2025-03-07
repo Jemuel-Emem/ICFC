@@ -124,7 +124,7 @@
                            wire:model.lazy="parents_phone_number"
                            pattern="[0-9]{10,15}"
                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                           maxlength="15" />
+                           maxlength="11" />
                     @error('parents_phone_number')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror

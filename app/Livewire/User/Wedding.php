@@ -57,13 +57,22 @@ class Wedding extends Component
 
     public function submitForm()
 {
-    if ($this->groom_age < 18 ) {
+
+    if ($this->groom_age < 18  && $this->bride_age < 18 ) {
+        $this->notification()->error(
+            $title = 'Denied',
+            $description = 'Both groom and bride must be at least 18 years old.'
+        );
+        return;
+    }
+    else if ($this->groom_age < 18 ) {
         $this->notification()->error(
             $title = 'Denied',
             $description = 'the groom must be at least 18 years old.'
         );
         return;
-    } else if ($this->bride_age < 18){
+    }
+     else if ($this->bride_age < 18){
         $this->notification()->error(
             $title = 'Denied',
             $description = 'the bride must be at least 18 years old.'
