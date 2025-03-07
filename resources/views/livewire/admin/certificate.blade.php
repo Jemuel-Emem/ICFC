@@ -55,53 +55,41 @@
             margin: 5px 0;
         }
         @media print {
-            body * {
-                visibility: hidden;
-            }
-            .certificate-container, .certificate-container * {
-                visibility: visible;
-            }
-            .certificate-container {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                border: none;
-                padding: 10px;
-                font-size: 14px; /* Smaller font for compactness */
-            }
-            .no-print {
-                display: none;
-            }
-            .form-group input {
-                border: none;
-                font-size: 14px;
-                font-weight: normal;
-            }
-            .print-only {
-                display: block;
-                font-size: 14px;
-                font-weight: normal;
-            }
-            .form-group label {
-                font-weight: bold;
-            }
-            .witness-section, .signature-section {
-                display: block;
-                font-size: 14px;
-            }
-            .grid-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr); /* 3 columns */
-                gap: 10px; /* Space between grid items */
-                margin-bottom: 20px;
-            }
-            .grid-item {
-                border: 1px solid #ccc;
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
+    body * {
+        visibility: hidden;
+    }
+    .certificate-container, .certificate-container * {
+        visibility: visible;
+    }
+    .certificate-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .no-print {
+        display: none;
+    }
+    .form-group input {
+        display: none; /* Hides input fields during printing */
+    }
+    .print-only {
+        display: block;
+        font-size: 14px;
+        font-weight: normal;
+    }
+    .form-group label {
+        font-weight: bold;
+    }
+    .witness-section, .signature-section {
+        display: block;
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 <body>
