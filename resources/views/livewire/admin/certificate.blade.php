@@ -54,12 +54,24 @@
         .signature-section p {
             margin: 5px 0;
         }
+
+        .certificate-logo {
+    width: 100px;  /* Adjust width */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
         @media print {
     body * {
         visibility: hidden;
     }
     .certificate-container, .certificate-container * {
         visibility: visible;
+    }
+    .certificate-logo {
+        width: 80px; /* Adjust for print */
+        height: auto;
     }
     .certificate-container {
         position: absolute;
@@ -94,6 +106,10 @@
 </head>
 <body>
     <div class="certificate-container">
+
+        <div style="text-align: center; margin-bottom: 10px;">
+            <img src="{{ asset('images/churchicon-removebg-preview.png') }}" alt="Church Logo" class="certificate-logo">
+        </div>
         <div class="certificate-title">Baptismal Certificate</div>
         <form id="baptismalForm">
             <div class="grid-container">
@@ -202,7 +218,7 @@
 
     <script>
         function preparePrint() {
-            // Transfer input values to print-only divs
+
             document.getElementById('printDateOfBaptism').innerText = document.getElementById('dateOfBaptism').value;
             document.getElementById('printNameOfChild').innerText = document.getElementById('nameOfChild').value;
             document.getElementById('printDateOfBirth').innerText = document.getElementById('dateOfBirth').value;
