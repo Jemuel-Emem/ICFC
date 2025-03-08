@@ -108,7 +108,7 @@
     <div class="certificate-container">
 
         <div style="text-align: center; margin-bottom: 10px;">
-            <img src="{{ asset('images/churchicon-removebg-preview.png') }}" alt="Church Logo" class="certificate-logo">
+            <img src="{{ asset('images/alogo.png') }}" alt="Church Logo" class="certificate-logo">
         </div>
         <div class="certificate-title">Baptismal Certificate</div>
         <form id="baptismalForm">
