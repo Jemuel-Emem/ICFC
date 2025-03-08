@@ -47,7 +47,7 @@ class Funeral extends Component
             ->where('status', 'approved')
             ->exists();
 
-            $existingFuneral = Funeral::where('funeral_date', $this->funeral_date)
+            $existingFuneral = Fune::where('funeral_date', $this->funeral_date)
             ->where('time_schedule', $this->time_schedule)
             ->whereIn('status', ['approved', 'pending'])
             ->exists();

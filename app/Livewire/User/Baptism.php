@@ -43,7 +43,7 @@ class Baptism extends Component
         ->where('status', 'approved')
         ->exists();
 
-        $existingBaptism = Baptism::where('preferred_baptism_date', $this->preferred_baptism_date)
+        $existingBaptism = Bapt::where('preferred_baptism_date', $this->preferred_baptism_date)
         ->where('time_schedule', $this->time_schedule)
         ->whereIn('status', ['approved', 'pending'])
         ->exists();
