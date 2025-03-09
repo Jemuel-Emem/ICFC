@@ -83,7 +83,7 @@ class Funeral extends Component
             'additional_information' => $this->additional_information,
             'time_schedule' => $this->time_schedule,
             'requirements' => $filePath,
-            'status' => 'pending',
+            'status' => 'wait for 3 days to approve',
         ]);
 
         $this->notification()->success(

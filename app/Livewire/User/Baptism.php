@@ -87,7 +87,7 @@ class Baptism extends Component
             'preferred_baptism_date' => $this->preferred_baptism_date,
             'time_schedule' => $this->time_schedule,
             'additional_information' => $this->additional_information,
-            'status' => 'pending',
+            'status' => 'wait for 3 days to approve',
             'requirements' => $filePath,
         ]);
 
