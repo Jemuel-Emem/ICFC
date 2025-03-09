@@ -139,7 +139,8 @@ return;
         'wedding_date' => $this->wedding_date,
         'time_schedule' => $this->time_schedule,
         'special_requests' => $this->special_requests,
-        'requirements' => $filePath, // Store the uploaded file path
+        'requirements' => $filePath,
+        'status' => 'wait for 3 days to approve'
     ]);
 
     $this->notification()->success(
