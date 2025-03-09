@@ -51,7 +51,7 @@ class Baptism extends Component
     if ($existingBaptism) {
         $this->notification()->error(
             'Time Slot Unavailable',
-            'The selected baptism date and time are already booked. Please choose another time.'
+            'The selected time are already booked. Please choose another time.'
         );
         return;
     }

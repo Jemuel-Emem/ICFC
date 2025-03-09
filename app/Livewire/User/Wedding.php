@@ -90,7 +90,7 @@ class Wedding extends Component
     if ($existingWedding) {
         $this->notification()->error(
             'Time Slot Unavailable',
-            'The selected wedding date and time are already booked. Please choose another time.'
+            'The selected time are already booked. Please choose another time.'
         );
         return;
     }

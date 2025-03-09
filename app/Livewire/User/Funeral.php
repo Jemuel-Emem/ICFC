@@ -54,8 +54,8 @@ class Funeral extends Component
 
         if ($existingFuneral) {
             $this->notification()->error(
-                'Schedule Unavailable',
-                'The selected funeral date and time slot are already booked. Please choose another time.'
+                'Selected Time Unavailable',
+                'The selected time slot are already booked. Please choose another time.'
             );
             return;
 
