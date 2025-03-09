@@ -20,6 +20,7 @@
         <thead>
             <tr class="bg-gray-200 text-left">
                 <th class="p-4">Child's Name</th>
+                <th class="p-4">Status</th>
                 <th class="p-4">Actions</th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
             @forelse($baptisms as $baptism)
                 <tr class="border-t">
                     <td class="p-4">{{ $baptism->child_name }}</td>
+                    <td class="p-4">{{ $baptism->status }}</td>
                     <td class="p-4 space-x-2">
                         <button
                             class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"

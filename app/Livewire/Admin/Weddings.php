@@ -46,10 +46,10 @@ class Weddings extends Component
             return;
         }
 
-        $subject = "Baptism Status Update - ICFC";
+        $subject = "Wedding Status Update - ICFC";
         $message = "
             <p>Dear User,</p>
-            <p>Your baptism request has been <strong>{$status}</strong>.</p>
+            <p>Your wedding request has been <strong>{$status}</strong>.</p>
             <p>Thank you,<br>ICFC</p>
         ";
 

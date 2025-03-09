@@ -21,6 +21,7 @@
             <tr class="bg-gray-200 text-left">
                 <th class="p-4">Bride's Name</th>
                 <th class="p-4">Groom's Name</th>
+                <th class="p-4">Status</th>
                 <th class="p-4">Actions</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
                 <tr class="border-t">
                     <td class="p-4">{{ $wedding->bride_name }}</td>
                     <td class="p-4">{{ $wedding->groom_name }}</td>
+                    <td class="p-4">{{ $wedding->status }}</td>
                     <td class="p-4 space-x-2">
                         <button
                             class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"

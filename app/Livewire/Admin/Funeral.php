@@ -76,10 +76,10 @@ class Funeral extends Component
             return;
         }
 
-        $subject = "Baptism Status Update - ICFC";
+        $subject = "Funeral Status Update - ICFC";
         $message = "
             <p>Dear User,</p>
-            <p>Your baptism request has been <strong>{$status}</strong>.</p>
+            <p>Your funeral request has been <strong>{$status}</strong>.</p>
             <p>Thank you,<br>ICFC</p>
         ";
 
