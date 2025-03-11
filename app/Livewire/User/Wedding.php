@@ -83,17 +83,18 @@ class Wedding extends Component
     $this->validate();
 
     $existingWedding = Wed::where('wedding_date', $this->wedding_date)
-        ->where('time_schedule', $this->time_schedule)
-        ->where('status', 'approved')
-        ->exists();
+    ->where('time_schedule', $this->time_schedule)
+    ->where('status', 'approved')
+    ->exists();
 
-    if ($existingWedding) {
-        $this->notification()->error(
-            'Time Slot Unavailable',
-            'The selected time are already booked. Please choose another time.'
-        );
-        return;
-    }
+if ($existingWedding) {
+    $this->notification()->error(
+        'Time Slot Unavailable',
+        'The selected time is already booked. Please choose another time slot.'
+    );
+    return;
+}
+
 
     if (wed::where('wedding_date', $this->wedding_date)
     ->whereIn('status', ['approved', 'pending'])

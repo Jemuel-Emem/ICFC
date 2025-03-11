@@ -96,6 +96,7 @@
                             <p><strong>Citizenship:</strong> {{ $selectedFuneral->citizenship }}</p>
                             <p><strong>Residence:</strong> {{ $selectedFuneral->residence }}</p>
                             <p><strong>Contact Person Name:</strong> {{ $selectedFuneral->contact_person_name }}</p>
+                            <p><strong>Contact Person Number:</strong> {{ $selectedFuneral->contact_person_number }}</p>
                         </div>
 
                         <!-- Additional Details -->
