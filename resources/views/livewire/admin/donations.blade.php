@@ -20,7 +20,7 @@
                 <table class="w-full border border-gray-300 text-left mt-4">
                     <thead>
                         <tr class="bg-gray-200 text-left">
-                            <th class="p-2 border">GPFCI</th>
+                            <th class="p-2 border">ICFC</th>
 
                         </tr>
                     </thead>
@@ -28,7 +28,7 @@
                         <tr>
                             <td class="p-2 border">Goods</td>
                             <td class="p-2 border">
-                                <input type="text" value="GPFCI (Aglipay Memorial Church)" class="w-full border-none outline-none text-right" readonly>
+                                <input type="text" value="ICFC (Aglipay Memorial Church)" class="w-full border-none outline-none text-right" readonly>
                             </td>
                         </tr>
                         <tr>
